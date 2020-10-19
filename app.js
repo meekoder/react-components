@@ -38,14 +38,47 @@
 // );
 //
 /* Part 4 */
+// class GroceryListItem extends React.Component {
+//   constructor(props) {
+//     super(props);
+//   }
+
+//   render() {
+//     return (
+//       <li>{this.props.item}</li>
+//     );
+//   }
+// };
+
+// const GroceryList = (props) => (
+//   <ul>
+//     <GroceryListItem item={'Eggs'}/>
+//     <GroceryListItem item={'Milk'}/>
+//   </ul>
+// );
+//
+/* Part 5 */
 class GroceryListItem extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      done: false
+    };
+  }
+
+  onItemHover() {
+    this.setState({
+      bought: !this.state.bought
+    });
   }
 
   render() {
+    const style = {
+      fontWeight: this.state.bought ? 'bold' : 'normal'
+    };
     return (
-      <li>{this.props.item}</li>
+      <li style={style} onMouseOver={this.onItemHover.bind(this)}>{this.props.item}</li>
     );
   }
 };
