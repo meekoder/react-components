@@ -23,17 +23,37 @@
 // );
 //
 /* Part 3 */
-const GroceryList = () => (
-  <div>
-    <h2>Grocery List</h2>
-    <GroceryListItem items={['Eggs', 'Milk']}/>
-  </div>
-);
+// const GroceryList = () => (
+//   <div>
+//     <h2>Grocery List</h2>
+//     <GroceryListItem items={['Eggs', 'Milk']}/>
+//   </div>
+// );
 
-const GroceryListItem = (props) => (
+// const GroceryListItem = (props) => (
+//   <ul>
+//     <li>{props.items[0]}</li>
+//     <li>{props.items[1]}</li>
+//   </ul>
+// );
+//
+/* Part 4 */
+class GroceryListItem extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+      <li>{this.props.item}</li>
+    );
+  }
+};
+
+const GroceryList = (props) => (
   <ul>
-    <li>{props.items[0]}</li>
-    <li>{props.items[1]}</li>
+    <GroceryListItem item={'Eggs'}/>
+    <GroceryListItem item={'Milk'}/>
   </ul>
 );
 
